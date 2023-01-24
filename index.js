@@ -1,4 +1,5 @@
 const inquirer = require("inquirer");
+const Employee = require("./src/Employee");
 
 function getManager() {
     inquirer
@@ -13,11 +14,11 @@ function getManager() {
             },
             {type: 'input',
             message: 'What is their email address?',
-            name: 'manager email'
+            name: 'managerEmail'
             },
             {type: 'input',
             message: 'What is their office number?',
-            name: 'managerPhone'
+            name: 'office'
             },
             {type: 'list',
             message: 'What would you like to do next?',
@@ -31,9 +32,10 @@ function getManager() {
         ])
     
         .then(answers => {
-            console.log(answers);
+            console.log(answers.ename);
+            const Manager = new Employee(answers.ename, answers.managerID, answers.managerEmail, answers.office);
             if (answers.choice === "finish") {
-                const htmlPageContent = generateHTML(answers);
+                // const htmlPageContent = generateHTML(answers);
             };
             if (answers.choice === "engineer") {
                 getEngineer();
@@ -41,6 +43,8 @@ function getManager() {
             if (answers.choice === "intern") {
                 getIntern();
             };
+
+            
 
     // fs.writeFile("index.html", htmlPageContent, (err) =>
     // 	err ? console.log(err) : console.log("Successfully created index.html!")
@@ -79,8 +83,9 @@ function getIntern() {
         ])
     
         .then(answers => {
+
             if (answers.choice === "finish") {
-                const htmlPageContent = generateHTML(answers);
+                // const htmlPageContent = generateHTML(answers);
             };
             if (answers.choice === "engineer") {
                 getEngineer();
@@ -123,7 +128,9 @@ function getEngineer() {
     
         .then(answers => {
             if (answers.choice === "finish") {
-                const htmlPageContent = generateHTML(answers);
+                let temp = Employee.getName()
+                console.log(temp);
+                // const htmlPageContent = generateHTML(answers);
             };
             if (answers.choice === "engineer") {
                 getEngineer();
@@ -135,3 +142,4 @@ function getEngineer() {
 };
 
 getManager();
+
