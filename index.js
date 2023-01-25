@@ -1,5 +1,12 @@
 const inquirer = require("inquirer");
 const Employee = require("./src/Employee");
+const Engineer = require("./src/Engineer");
+const Intern = require("./src/Intern");
+const Manager = require("./src/Manager");
+
+let manager;
+let engineers = [];
+let interns = [];
 
 function getManager() {
     inquirer
@@ -32,10 +39,11 @@ function getManager() {
         ])
     
         .then(answers => {
-            console.log(answers.ename);
-            const Manager = new Employee(answers.ename, answers.managerID, answers.managerEmail, answers.office);
+            
+            manager = new Manager(answers.ename, answers.managerID, answers.managerEmail, answers.office); 
+
             if (answers.choice === "finish") {
-                // const htmlPageContent = generateHTML(answers);
+                generateHTML();
             };
             if (answers.choice === "engineer") {
                 getEngineer();
@@ -68,7 +76,7 @@ function getIntern() {
             name: 'employeeEmail'
             },
             {type: 'input',
-            message: 'What school did they go to?',
+            message: 'Where did they go to school?',
             name: 'school'
             },
             {type: 'list',
@@ -83,9 +91,11 @@ function getIntern() {
         ])
     
         .then(answers => {
+            const intern = new Intern(answers.employeeName, answers.EID, answers.employeeMail, answers.school);
+            interns.push(intern);
 
             if (answers.choice === "finish") {
-                // const htmlPageContent = generateHTML(answers);
+                generateHTML()
             };
             if (answers.choice === "engineer") {
                 getEngineer();
@@ -97,6 +107,7 @@ function getIntern() {
 };
 
 function getEngineer() {
+
     inquirer
         .prompt([
             {type: 'input',
@@ -127,10 +138,11 @@ function getEngineer() {
         ])
     
         .then(answers => {
+            const engineer = new Engineer(answers.employeeName, answers.EID, answers.employeeMail, answers.github)
+                engineers.push(engineer);
+
             if (answers.choice === "finish") {
-                let temp = Employee.getName()
-                console.log(temp);
-                // const htmlPageContent = generateHTML(answers);
+                generateHTML()
             };
             if (answers.choice === "engineer") {
                 getEngineer();
@@ -140,6 +152,14 @@ function getEngineer() {
             };
         })
 };
+
+function generateHTML() {
+    const ename = manager.getName();
+    const role = manager.getRole();
+    const tschool = interns[0].getSchool();
+    const tgithub = engineers[0].getGithub();
+    console.log(ename, role, tschool, tgithub);
+}
 
 getManager();
 
