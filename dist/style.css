@@ -655,12 +655,24 @@ video {
   flex: 1 1 auto;
 }
 
+.flex-none {
+  flex: none;
+}
+
 .basis-3\/12 {
   flex-basis: 25%;
 }
 
+.basis-20 {
+  flex-basis: 5rem;
+}
+
 .flex-row {
   flex-direction: row;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-center {
@@ -669,6 +681,14 @@ video {
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
 }
 
 .rounded-sm {
