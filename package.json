@@ -1,7 +1,7 @@
 {
   "name": "team-profile-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "An app to create a team profile",
   "main": "index.js",
   "directories": {
     "lib": "lib",
@@ -24,5 +24,8 @@
   "dependencies": {
     "inquirer": "^8.2.4",
     "jest": "^29.3.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
   }
 }

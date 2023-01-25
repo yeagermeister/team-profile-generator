@@ -1,8 +1,8 @@
 const inquirer = require("inquirer");
-const Employee = require("./src/Employee");
-const Engineer = require("./src/Engineer");
-const Intern = require("./src/Intern");
-const Manager = require("./src/Manager");
+const Employee = require("./lib/Employee");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
 
 let manager;
 let engineers = [];
@@ -51,12 +51,6 @@ function getManager() {
             if (answers.choice === "intern") {
                 getIntern();
             };
-
-            
-
-    // fs.writeFile("index.html", htmlPageContent, (err) =>
-    // 	err ? console.log(err) : console.log("Successfully created index.html!")
-    // );
         })
 };  
 
