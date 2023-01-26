@@ -1,7 +1,7 @@
 # Team profile generator
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)     
 	A video of this app in action can be found at
-	https://drive.google.com/file/d/1Uy8ptV2cVw1xLdG_ZMcuQvkktpWe98Vi/view
+	https://drive.google.com/file/d/1PChdPDXWmEyhwhUqfX2-4DI-EYLiFaGD/view
 
 Table of Contents
 =================
